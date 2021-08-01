@@ -5,7 +5,6 @@ import redis from 'redis';
 import dayjs from 'dayjs';
 import { Resp } from './resp';
 import cors from 'cors';
-import { promisify } from 'util';
 
 const client = redis.createClient(process.env.REDIS_URL || '');
 
