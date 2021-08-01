@@ -1,0 +1,26 @@
+@url=http://localhost:3001
+
+
+################################
+GET {{url}}/api/messages?offset=0&limit=100
+
+############################
+GET {{url}}/api/message/1
+
+##########
+POST {{url}}/api/message
+Content-Type: application/json
+
+{
+    "user":"aaa",
+    "message":"5"
+}
+#########
+DELETE {{url}}/api/message
+
+#########
+DELETE {{url}}/api/all
+
+
+#########
+GET {{url}}/api/version
