@@ -7,9 +7,9 @@ import { Resp } from './resp';
 import cors from 'cors';
 
 const client = redis.createClient(process.env.REDIS_URL || '');
-const PORT = process.env.NODE_ENV || 3001;
+const PORT = process.env.PORT || 3001;
 
-client.on('error', function (error) {
+client.on('error', (error) => {
   console.error(error);
 });
 
