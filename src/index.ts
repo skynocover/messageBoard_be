@@ -98,6 +98,8 @@ const server = app.listen(PORT, () => {
   console.log(new Date(), `server listening on ${PORT}`);
 });
 
+////////////////////// Redis ////////////////////////
+
 const ListMessage = async (offset: string, limit: string) => {
   return new Promise((resolve, reject) => {
     client.LRANGE('message', +offset, +offset + +limit - 1, (err, reply) => {
