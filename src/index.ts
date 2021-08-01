@@ -3,8 +3,9 @@ import morgan from 'morgan';
 import express, { Request, Response, NextFunction } from 'express';
 import redis from 'redis';
 import dayjs from 'dayjs';
-import { Resp } from './resp';
 import cors from 'cors';
+
+import { Resp } from './resp';
 
 const client = redis.createClient(process.env.REDIS_URL || '');
 const PORT = process.env.PORT || 3001;
