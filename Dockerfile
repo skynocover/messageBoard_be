@@ -4,7 +4,6 @@ WORKDIR /usr/src/app
 COPY src /usr/src/app/src
 COPY package.json /usr/src/app/
 COPY tsconfig.json /usr/src/app/
-COPY .env /usr/src/app/
 RUN yarn global add typescript
 RUN yarn global add yarn
 RUN yarn install
