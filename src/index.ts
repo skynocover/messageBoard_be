@@ -7,6 +7,7 @@ import { Resp } from './resp';
 import cors from 'cors';
 
 const client = redis.createClient(process.env.REDIS_URL || '');
+const PORT = process.env.NODE_ENV || 3001;
 
 client.on('error', function (error) {
   console.error(error);
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 app.get('/api/version', (req, res) => {
-  res.json({ env: process.env.NODE_ENV, version: process.env.VERSION });
+  res.json({ env: process.env.NODE_ENV, version: process.env.VERSION, port: PORT });
 });
 
 app.get('/api/messages', async (req, res) => {
@@ -91,10 +92,10 @@ app.delete('/api/all', async (req, res) => {
   }
 });
 
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(new Date(), `env: ${process.env.NODE_ENV}`);
   console.log(new Date(), `version: ${process.env.VERSION}`);
-  console.log(new Date(), `server listening on ${process.env.PORT}`);
+  console.log(new Date(), `server listening on ${PORT}`);
 });
 
 const ListMessage = async (offset: string, limit: string) => {
